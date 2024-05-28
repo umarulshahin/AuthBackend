@@ -17,7 +17,7 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
         # Add custom claims
         token['username'] = user.username
         # ...
-
+        
         return token
 
 class MyTokenobtainedPairView(TokenObtainPairView):
@@ -35,7 +35,7 @@ def getRouter(request):
     return Response(router)
 
 @api_view(['GET'])
-# @permission_classes([IsAuthenticated])
+@permission_classes([IsAuthenticated])
 def getNote(request):
     
     user=request.user
